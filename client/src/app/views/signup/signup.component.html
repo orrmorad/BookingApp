@@ -1,0 +1,65 @@
+<div class="form-component signup-container">
+    <div class="inner-container">
+        <div class="form-container">
+            <div class="title">
+                <mat-icon (click)="backToLogin()">arrow_back</mat-icon>
+                <h2>Create Account</h2>
+            </div>
+            <form [formGroup]="signupForm" (submit)="createAccount()">
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>ID</mat-label>
+                        <input matInput formControlName="id" type="text" [(ngModel)]="user.id">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username" type="text" [(ngModel)]="user.username">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Firstname</mat-label>
+                        <input matInput formControlName="firstname" type="text" [(ngModel)]="user.firstname">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Lastname</mat-label>
+                        <input matInput formControlName="lastname" type="text" [(ngModel)]="user.lastname">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" type="text" [(ngModel)]="user.email">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" type="password" [(ngModel)]="user.password">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput formControlName="confirmPassword" type="password" [(ngModel)]="confirmPassword">
+                    </mat-form-field>
+                </div>
+                <div class="buttons">
+                    <div class="button-wrapper register-btn">
+                        <button type="submit" mat-raised-button
+                            [disabled]="signupForm.invalid || user.password !== confirmPassword">Register</button>
+                    </div>
+                    <div class="button-wrapper clear-btn">
+                        <button mat-raised-button color="warn" (click)="clearForm()">Clear</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+</div>

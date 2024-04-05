@@ -1,0 +1,16 @@
+.register-btn > button:not([disabled]){
+    background-color: #46b746;
+    color: white;
+}
+
+.form-container{
+    .title{
+        position: relative;
+        mat-icon{
+            position: absolute;
+            left: -1.5vw;
+            top: 0.4vh;           
+                &:hover{cursor: pointer;}            
+        }
+    }
+}

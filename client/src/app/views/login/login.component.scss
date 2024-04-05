@@ -1,0 +1,32 @@
+.member-btn{
+    button:not([disabled]){
+        background-color: #75ba75;
+        color: white;
+    }
+}
+
+.guest-btn{
+    button{
+        background-color: #56aae2;
+        color:white;
+    }
+}
+
+.footer{
+    margin-top: 1vh;
+    font-size: .7vw;
+    span.create-account-link{
+        cursor: pointer;
+        text-decoration: underline;
+        color: #56aae2;
+    }
+}
+
+.error{
+    position: relative;
+    small{
+        position: absolute;
+        top: -1.8vh;
+    }
+}
+

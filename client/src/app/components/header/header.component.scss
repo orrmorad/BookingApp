@@ -1,0 +1,48 @@
+header {
+    background-color: #afc5d8;
+    height: 8%;
+}
+
+header > h1{
+    margin: 0;
+}
+
+
+.inner-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    
+    h1{
+        margin: 0;
+    }
+}
+
+.logged-user-container {
+    display: flex;
+    align-items: center;
+}
+
+.create-account-link{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #56aae2;
+}
+
+.buttons-container{
+    width: 11vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        color: white;
+        font-size: .7vw;
+        &.login-btn{background-color: #75ba75;}
+        &.signup-btn{background-color: darkblue;}
+    }
+}
+
+.username {
+    width: 4vw;
+}

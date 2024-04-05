@@ -1,0 +1,5 @@
+<div *ngIf="hotels$ | async">
+    <div *ngFor="let hotel of hotels$ | async">
+        {{hotel.name}}
+    </div>
+</div>

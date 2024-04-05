@@ -1,0 +1,22 @@
+<header class="row align-items-center">
+    <div class="inner-container">
+        <h1>Booking App</h1>
+        <div class="logged-user-container">
+            <div class="username">
+                <span>{{currentUser.value?.username}}</span>
+            </div>
+            <div class="actions" *ngIf="currentUser.value">
+                <div *ngIf="currentUser.value.username !=='Guest'; else guestTemplate">
+                    <button type="button" class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<ng-template #guestTemplate>
+    <div class="buttons-container">
+        <button class="login-btn" type="button" mat-raised-button (click)="logout()">Login</button>
+        <button class="signup-btn" type="button" mat-raised-button (click)="createAccount()">Create Account</button>
+    </div>
+</ng-template>

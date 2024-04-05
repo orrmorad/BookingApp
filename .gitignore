@@ -11,6 +11,17 @@ node_modules/
 # Ignore client-side build artifacts
 /client/node_modules/
 /client/dist/
+/client/tmp
+/client/out-tsc
+/client/bazel-out
+
+/client/.angular/cache
+/client/.sass-cache/
+/client/connect.lock
+/client/coverage
+/client/libpeerconnection.log
+/client/testem.log
+/client/typings
 
 # Ignore server-side build artifacts
 /server/node_modules/
@@ -22,3 +33,7 @@ node_modules/
 # Ignore any IDE or editor-specific files
 .idea/
 .vscode/
+
+# System files
+.DS_Store
+Thumbs.db

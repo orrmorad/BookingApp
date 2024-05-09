@@ -29,6 +29,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { AddHotelComponent } from './views/add-hotel/add-hotel.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ReviewComponent } from './components/review/review.component';
+import { AddReservationComponent } from './views/add-reservation/add-reservation.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReviewComponent } from './components/review/review.component';
     SignupDialogComponent,
     AddHotelComponent,
     HeaderComponent,
-    ReviewComponent
+    ReviewComponent,
+    AddReservationComponent
   ],
   imports: [
     BrowserModule,

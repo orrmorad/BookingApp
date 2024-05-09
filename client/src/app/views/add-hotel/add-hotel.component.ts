@@ -13,7 +13,7 @@ import { HotelsService } from 'src/app/services/hotels.service';
 })
 export class AddHotelComponent implements OnInit, OnDestroy {
 
-  constructor(private fb: FormBuilder, private hotelService: HotelsService, private authService: AuthService, private router:Router) { }  
+  constructor(private fb: FormBuilder, private hotelService: HotelsService, private authService: AuthService, private router: Router) { }
 
   addHotelForm: FormGroup = new FormGroup({});
   isShowRoomPriceForm: boolean = false;
@@ -21,11 +21,15 @@ export class AddHotelComponent implements OnInit, OnDestroy {
   regularRoomPrice: AgePrices = new AgePrices();
   bigRoomPrice: AgePrices = new AgePrices();
   suiteRoomPrice: AgePrices = new AgePrices();
-  userSub:Subscription = new Subscription();
+  userSub: Subscription = new Subscription();
   userId = '';
 
   ngOnInit(): void {
     this.userSub = this.authService.loggedUser.subscribe(user => this.userId = user?.id || '');
+    this.setFormBuilder();
+  }
+
+  setFormBuilder() {
     this.addHotelForm = this.fb.group({
       name: ['', Validators.required],
       capacity: [0, Validators.required],
@@ -58,7 +62,7 @@ export class AddHotelComponent implements OnInit, OnDestroy {
     this.newHotel.roomPrice = new RoomPrice(this.regularRoomPrice, this.bigRoomPrice, this.suiteRoomPrice);
     this.newHotel.userCreatedId = this.userId;
     this.newHotel.location.generateTitle();
-    this.hotelService.createHotel(this.newHotel).subscribe(res =>{
+    this.hotelService.createHotel(this.newHotel).subscribe(res => {
       this.router.navigateByUrl('/home');
     });
   }

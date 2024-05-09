@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCommonModule } from '@angular/material/core';
 import { AddHotelComponent } from './views/add-hotel/add-hotel.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HeaderComponent } from './components/header/header.component';
     UsersListComponent,
     SignupDialogComponent,
     AddHotelComponent,
-    HeaderComponent
+    HeaderComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

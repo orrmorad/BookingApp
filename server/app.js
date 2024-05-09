@@ -39,6 +39,7 @@ const hotelSchema = new mongoose.Schema({
     rating: Number,
     image: String,
     roomPrice: Object,
+    reviews: [{ reviewer: String, comment: String }],
     isAvailable: Boolean
 });
 
@@ -147,12 +148,26 @@ app.route('/users/removeUser/:id')
         }, err => { res.send(err) });
     });
 
+app.route('/reviews/addReview/:id')
+    .post((req, res) => {
+        const hotelId = req.params;
+        const review = req.body;
+        Hotel.findById(hotelId).then(hotel => {
+            if (!hotel)
+                return res.status(404).json({ error: 'Hotel not found' });
+            hotel.reviews.push(review);
+            hotel.save();
+            return res.status(200).json({ message: 'Review added successfully' })
+        }, err => { res.send(err) });
+    });
+
+
 app.route('/login')
-    .get(async(req, res) => {
+    .get(async (req, res) => {
         const { username, password } = req.body;
-        const user = await User.findOne({ username });        
-        if(user && user.password){
-            if(user.password === password){
+        const user = await User.findOne({ username });
+        if (user && user.password) {
+            if (user.password === password) {
                 res.send(user)
             }
         }

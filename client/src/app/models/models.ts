@@ -6,7 +6,14 @@ export interface Hotel {
     rating: number;
     image: string;
     roomPrice: RoomPrice;
+    reviews: Review[];
     isAvailable: boolean;
+}
+
+export interface Review {
+    userName: string;
+    comment: string;
+    rating: number;
 }
 
 export class User {

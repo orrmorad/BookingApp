@@ -14,11 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.hotels$ = this.hotelsService.hotels$;
-  }
-
-  addHotel() {
-    this.hotelsService.createHotel().subscribe();
-  }
+  }  
 
   deleteHotel(hotel: any) {
     this.hotelsService.removeHotel(hotel._id).subscribe();

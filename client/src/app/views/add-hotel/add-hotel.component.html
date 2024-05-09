@@ -7,39 +7,39 @@
                     <div>
                         <mat-form-field appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input matInput formControlName="name" type="text">
+                            <input matInput formControlName="name" type="text" [(ngModel)]="newHotel.name">
                         </mat-form-field>
                     </div>
                     <div formGroupName="location">
                         <div>
                             <mat-form-field appearance="outline">
                                 <mat-label>Country</mat-label>
-                                <input matInput formControlName="country" type="text">
+                                <input matInput formControlName="country" type="text" [(ngModel)]="newHotel.location.country">
                             </mat-form-field>
                         </div>
                         <div>
                             <mat-form-field appearance="outline">
                                 <mat-label>City</mat-label>
-                                <input matInput formControlName="city" type="text">
+                                <input matInput formControlName="city" type="text" [(ngModel)]="newHotel.location.city">
                             </mat-form-field>
                         </div>
                         <div>
                             <mat-form-field appearance="outline">
                                 <mat-label>Street</mat-label>
-                                <input matInput formControlName="street" type="text">
+                                <input matInput formControlName="street" type="text" [(ngModel)]="newHotel.location.street">
                             </mat-form-field>
                         </div>
                         <div>
                             <mat-form-field appearance="outline">
                                 <mat-label>Number</mat-label>
-                                <input matInput formControlName="number" type="number">
+                                <input matInput formControlName="number" type="number" [(ngModel)]="newHotel.location.number">
                             </mat-form-field>
                         </div>
                     </div>
                     <div>
                         <mat-form-field appearance="outline">
                             <mat-label>Capacity</mat-label>
-                            <input matInput formControlName="capacity" type="number">
+                            <input matInput formControlName="capacity" type="number" [(ngModel)]="newHotel.capacity">
                         </mat-form-field>
                     </div>
                     <button mat-raised-button color="warn" (click)="roomPriceFormVisibility(true)">Next</button>
@@ -50,33 +50,33 @@
                         <mat-label>Regular</mat-label>
                         <mat-form-field appearance="outline">
                             <mat-label>Adult</mat-label>
-                            <input matInput formControlName="regularAdult" type="number">
+                            <input matInput formControlName="regularAdult" type="number" [(ngModel)]="regularRoomPrice.adultPrice">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Child</mat-label>
-                            <input matInput formControlName="regularChild" type="number">
+                            <input matInput formControlName="regularChild" type="number" [(ngModel)]="regularRoomPrice.childPrice">
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-label>Big</mat-label>
                         <mat-form-field appearance="outline">
                             <mat-label>Adult</mat-label>
-                            <input matInput formControlName="bigAdult" type="number">
+                            <input matInput formControlName="bigAdult" type="number" [(ngModel)]="bigRoomPrice.adultPrice">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Child</mat-label>
-                            <input matInput formControlName="bigChild" type="number">
+                            <input matInput formControlName="bigChild" type="number" [(ngModel)]="bigRoomPrice.childPrice">
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-label>Suite</mat-label>
                         <mat-form-field appearance="outline">
                             <mat-label>Adult</mat-label>
-                            <input matInput formControlName="suiteAdult" type="number">
+                            <input matInput formControlName="suiteAdult" type="number" [(ngModel)]="suiteRoomPrice.adultPrice">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Child</mat-label>
-                            <input matInput formControlName="suiteChild" type="number">
+                            <input matInput formControlName="suiteChild" type="number" [(ngModel)]="suiteRoomPrice.childPrice">
                         </mat-form-field>
                     </div>
                     <div>

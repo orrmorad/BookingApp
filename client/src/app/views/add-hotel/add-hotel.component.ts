@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Hotel } from 'src/app/models/models';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AgePrices, Hotel, RoomPrice } from 'src/app/models/models';
+import { AuthService } from 'src/app/services/auth.service';
 import { HotelsService } from 'src/app/services/hotels.service';
 
 @Component({
@@ -8,14 +11,21 @@ import { HotelsService } from 'src/app/services/hotels.service';
   templateUrl: './add-hotel.component.html',
   styleUrls: ['./add-hotel.component.scss']
 })
-export class AddHotelComponent implements OnInit {
+export class AddHotelComponent implements OnInit, OnDestroy {
 
-  constructor(private fb: FormBuilder, private hotelService: HotelsService) { }
+  constructor(private fb: FormBuilder, private hotelService: HotelsService, private authService: AuthService, private router:Router) { }  
 
   addHotelForm: FormGroup = new FormGroup({});
   isShowRoomPriceForm: boolean = false;
+  newHotel: Hotel = new Hotel();
+  regularRoomPrice: AgePrices = new AgePrices();
+  bigRoomPrice: AgePrices = new AgePrices();
+  suiteRoomPrice: AgePrices = new AgePrices();
+  userSub:Subscription = new Subscription();
+  userId = '';
 
   ngOnInit(): void {
+    this.userSub = this.authService.loggedUser.subscribe(user => this.userId = user?.id || '');
     this.addHotelForm = this.fb.group({
       name: ['', Validators.required],
       capacity: [0, Validators.required],
@@ -36,12 +46,20 @@ export class AddHotelComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
+
   roomPriceFormVisibility(isVisible: boolean) {
     this.isShowRoomPriceForm = isVisible;
   }
 
   createHotel() {
-
+    this.newHotel.roomPrice = new RoomPrice(this.regularRoomPrice, this.bigRoomPrice, this.suiteRoomPrice);
+    this.newHotel.userCreatedId = this.userId;
+    this.newHotel.location.generateTitle();
+    this.hotelService.createHotel(this.newHotel).subscribe(res =>{
+      this.router.navigateByUrl('/home');
+    });
   }
-
 }

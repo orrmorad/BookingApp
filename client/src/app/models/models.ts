@@ -1,13 +1,13 @@
-export interface Hotel {
-    userCreatedId: string;
-    name: string;
-    location: Location;
-    capacity: number;
-    rating: number;
-    image: string;
-    roomPrice: RoomPrice;
-    reviews: Review[];
-    isAvailable: boolean;
+export class Hotel {
+    userCreatedId: string = '';
+    name: string = '';
+    location: Location = new Location();
+    capacity: number = 0;
+    rating: number = 0;
+    image: string = '';
+    roomPrice?: RoomPrice;
+    reviews: Review[] = [];
+    isAvailable: boolean = false;
 }
 
 export interface Review {
@@ -82,17 +82,13 @@ export class Room {
 }
 
 export class Location {
-    country: string;
-    city: string;
-    street: string;
-    number: number;
-    title: string;
-
-    constructor(country: string, city: string, street: string, number: number) {
-        this.country = country;
-        this.city = city;
-        this.street = street;
-        this.number = number;
+    country: string ='';
+    city: string = '';
+    street: string = '';
+    number: number = 0;
+    title: string = '';
+    
+    generateTitle(){
         this.title = `${this.number} ${this.street}, ${this.city}, ${this.country}`;
     }
 }
@@ -112,11 +108,6 @@ export class RoomPrice {
 export class AgePrices {
     childPrice: number = 0;
     adultPrice: number = 0;
-
-    constructor(childPrice: number, adultPrice: number) {
-        this.childPrice = childPrice;
-        this.adultPrice = adultPrice;
-    }
 }
 
 export enum RoomType {
